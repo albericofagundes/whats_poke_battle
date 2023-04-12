@@ -1,0 +1,22 @@
+{
+  "name": "whats_poke_battle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albericofagundes/whats_poke_battle.git"
+  },
+  "author": "Alberico Fagundes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albericofagundes/whats_poke_battle/issues"
+  },
+  "homepage": "https://github.com/albericofagundes/whats_poke_battle#readme",
+  "dependencies": {
+    "venom-bot": "^4.3.7"
+  }
+}
