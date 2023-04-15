@@ -15,7 +15,7 @@ create({
 async function start(client) {
   client.onAnyMessage(async (message) => {
     const chat = await client.getChatById(message.chatId);
-    console.log("chatId", chat);
+    // console.log("chatId", chat);
     if (message.isMedia) {
     }
 
@@ -29,14 +29,48 @@ async function start(client) {
         );
 
         const data = response.data;
-        console.log("response.data", response.data);
+
+        const imageResponse = await fetch(data.sprites.front_default);
+
+        if (imageResponse.ok) {
+          const imageData = await imageResponse.arrayBuffer();
+          const base64ImageData = imageData.toString("base64");
+
+            
+        // const sticker = await client.sendImageAsSticker(
+        //   message.from,
+        //   `data:image/png;base64,${base64ImageData}`,
+        //   { author: "PokeAPI" },
+        //   { pack: "Pokemons", keepScale: true }
+        // );
+
+
+          console.log("imageData", imageData);
+          console.log("base64ImageData", base64ImageData);
+          // console.log("sticker", sticker);
+        } else {
+          console.log("Erro ao carregar imagem");
+        }
+
+        
+
+        // const imageResponse = await fetch(data.sprites.front_default);
+        // const imageResponse = await axios.get(data.sprites.front_default, {
+        //   responseType: "arraybuffer",
+        // });
+        // console.log("imageResponse", imageResponse);
+        // const imageData = await imageResponse.buffer();
+        // console.log("imageData", imageData);
+
+        // console.log("response.data", response.data);
+        // console.log("response.data.sprites.front_default", response.data.sprites.front_default);
 
         // Baixar a imagem do front_default
 
-        const imageResponse = await fetch(data.sprites.front_default);
+        // const imageResponse = await fetch(data.sprites.front_default);
         // const imageData = await imageResponse.buffer();
         // const base64ImageData = imageData.toString("base64");
-        console.log("imageResponse", imageResponse);
+        // console.log("imageResponse", imageResponse);
         // console.log("imageData", imageData);
 
         // const messageText = `Nome: ${data.name}\nTipo: ${data.types[0].type.name}`;
